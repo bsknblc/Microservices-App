@@ -21,9 +21,9 @@ public class InventoryService {
     @Transactional(readOnly = true)
     @SneakyThrows //don't use this in production, it will consume the expection
     public List<InventoryResponse> isInStock(List<String> skuCode) {
-        log.info("Wait started");
-        Thread.sleep(10000); //simulates network delay
-        log.info("Wait ended");
+//        log.info("Wait started");
+//        Thread.sleep(10000); //simulates network delay
+//        log.info("Wait ended");
         return inventoryRepository.findBySkuCodeIn(skuCode).stream()
                 .map(inventory ->
                     InventoryResponse.builder()
